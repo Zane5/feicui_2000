@@ -1,0 +1,65 @@
+.product_info.col-md-5
+  %h4.product_name
+    = product.name  
+    %span.short_description
+      = product.short_description
+  .product_cost_price
+    %span= t :cost_price
+    %span :
+    %span.glyphicon.glyphicon-usd= product.cost_price
+  .product_progress
+    .progress
+      .progress-bar.progress-bar-danger.progress-bar-striped{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "40", :role => "progressbar", :style => "width: 40%"}
+        %span.sr-only 40% Complete (danger)
+    .row
+      .col-md-5
+        %span 149347
+        %br
+        %span= t :involved_num
+      .col-md-5
+        %span 389999
+        %br
+        %span= t :all_needed_persons
+      .col-md-2
+        %span 240652
+        %br
+        %span= t :remain
+  .product_amount
+    .title.col-md-3
+      %span=t :participate
+    .container.col-md-9
+      .row
+        .input-group.number-spinner
+          %span.input-group-btn.data-dwn
+            %button.btn.btn-default.btn-info{"data-dir" => "dwn"}
+              %span.glyphicon.glyphicon-minus
+          %input.form-control.text-center{:max => "389999", :min => "1", :type => "text", :value => "1"}
+          %span.input-group-btn.data-up
+            %button.btn.btn-default.btn-info{"data-dir" => "up"}
+              %span.glyphicon.glyphicon-plus
+      .row
+        .number-bundle
+          %button.btn.btn-default.btn-info{"data-dir" => "up10"}
+            %span.glyphicon.glyphicon-plus
+              10
+          %button.btn.btn-default.btn-info{"data-dir" => "up50"}
+            %span.glyphicon.glyphicon-plus
+              50
+          %button.btn.btn-default.btn-info{"data-dir" => "up100"}
+            %span.glyphicon.glyphicon-plus
+              100
+          %button.btn.btn-default.btn-info{"data-dir" => "up200"}
+            %span.glyphicon.glyphicon-plus
+              200
+  .product_action.col-xs-12
+    %a.btn.btn-warning.btn-lg
+      =t :buy_immediately
+    = link_to "#{ t :add_to_cart }", cart_items_path(product_id: @product), method: :post, class: 'btn btn-danger btn-lg glyphicon glyphicon-shopping-cart'
+
+  .product_service_assurance.col-xs-12
+    %span.glyphicon.glyphicon-thumbs-up
+    =link_to "#{ t :fair_just }", '#'
+    %span.glyphicon.glyphicon-tags
+    =link_to "#{ t :authenticity_guarantee }", '#'
+    %span.glyphicon.glyphicon-plane
+    =link_to "#{ t :nationwide_free_delivery }", '#'

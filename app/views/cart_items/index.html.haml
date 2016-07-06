@@ -1,0 +1,35 @@
+%section.cart_queue.container
+  .row.col-md-10.col-md-offset-1
+    %article
+      %header
+        %h3 Cart Queue
+      = form_tag buy_immediately_path do
+        %table.table
+          %thead
+            %tr
+              %th product_title
+              %th remaining_number
+              %th purchase_quantity
+              %th subtotal
+              %th remove_cart_item
+          %tbody
+            - @cart_items.each do |cart_item|
+              %tr
+                = hidden_field_tag "cart_items[][id]", cart_item.id
+                %td 
+                  = link_to cart_item.product_name, cart_item.product
+                %td 888
+                %td.col-md-2
+                  .input-group
+                    %span.input-group-btn
+                      %btn.btn.btn-default{:type => "button"}
+                        %span.glyphicon.glyphicon-minus
+                    %input.form-control{:placeholder => "purchase_quantity", :type => "text"}
+                    %span.input-group-btn
+                      %btn.btn.btn-default{:type => "button"}
+                        %span.glyphicon.glyphicon-plus
+                %td 888  
+                %td
+                  = link_to cart_item, method: :delete do
+                    %i.glyphicon.glyphicon-remove
+        = submit_tag "#{ t :buy_immediately }", class: 'btn btn-danger btn-lg glyphicon glyphicon-shopping-cart'

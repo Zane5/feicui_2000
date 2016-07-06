@@ -1,0 +1,16 @@
+.col-md-12
+  = render 'shared/header_logo'
+%section.register.container
+  .row
+    .col-md-6.col-md-offset-3
+      =bootstrap_form_for @user, html: { class: "from-horizontal" } do |f|
+        %header
+          %h1
+            =t :register
+        %fieldset
+          = f.email_field :email, label: "#{ t :email_address }"
+          = f.password_field :password, label: "#{ t :password }"
+          = f.text_field :full_name, label: "Full Name"
+        %fieldset  
+          .controls
+            = submit_tag "#{ t :sign }", class: "btn btn-success"

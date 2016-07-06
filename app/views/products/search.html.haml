@@ -1,0 +1,9 @@
+.row.panel.panel-body.clearfix
+  =render 'shared/header_logo'
+.row.panel.panel-primary.panel-body.clearfix
+  -@results.each do |product|
+    .product.col-md-2
+      %h5=product.name
+      =link_to product do
+        =image_tag 'range_rover_gallery_01.jpg'
+        %img(src="#{  }")

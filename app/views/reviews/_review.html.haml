@@ -1,0 +1,16 @@
+%section.reviews.container
+  .row.col-md-8.col-md-offset-1
+    %header
+      %h4
+        = t :a_total_of
+        #{@reviews.count}
+        = t :reviews_number
+    %article.review
+      - @reviews.each do |review|
+        .media
+          .media-left
+            %img.media-boject.img-circle{:alt => "avatar", :src => "https://placem.at/people?w=80&h=80&random=hello"}
+          .media-body
+            %h5.media-heading
+              #{review.user.full_name}
+            %p= review.content

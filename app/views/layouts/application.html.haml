@@ -1,0 +1,17 @@
+!!!
+%html{lang: I18n.locale}
+  %head
+    %title=t :website_brand
+    = stylesheet_link_tag    'feicui.css', media: 'all'
+    = stylesheet_link_tag    'front/_front.css', media: 'all'
+    = javascript_include_tag 'feicui.js'
+    = csrf_meta_tags
+    = yield :head
+  %body
+    %header
+      = render 'shared/header'
+    %section.conten.clearfix
+      = render 'shared/messages'
+      = yield
+    %footer
+      = render 'shared/footer'

@@ -1,0 +1,1 @@
+class Computer < Product; end

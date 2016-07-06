@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql 
+  pool: 5
+  timeout: 5000
+  username: vagrant
+  password: vagrant
+
+development:
+  <<: *default
+  database: feicui_2000_development
+
+
+test:
+  <<: *default
+  database: feicui_2000_test
+
+production:
+  <<: *default
+  database: feicui_2000_production
+

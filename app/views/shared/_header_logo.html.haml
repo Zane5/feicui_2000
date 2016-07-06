@@ -1,0 +1,6 @@
+.section.header_logo
+  .col-sm-1
+    =image_tag 'logo_165_green.png', class: 'img-responsive'
+  =form_tag search_products_path, class: "col-md-4 for-search" do
+    %input.search-query{:name => "search_term", :placeholder =>  "#{t :search}", :type => "text"}
+    %button.btn.btn-default(type="submit") #{t :search}

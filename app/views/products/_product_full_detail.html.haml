@@ -1,0 +1,20 @@
+.product_full_details.col-2
+  %ul#myTab.nav.nav-tabs.responsive
+    %li.active
+      %a{"data-target" => "#full_detail", "data-toggle" => "tab", :href => "#full_detail"} #{ t :full_detail }
+    %li
+      %a{"data-target" => "#all_record", "data-toggle" => "tab", :href => "#all_record"} #{ t :all_record }
+    %li
+      %a{"data-target" => "#show_order", "data-toggle" => "tab", :href => "#show_order"} #{ t :show_order }
+  .tab-content.responsive
+    #full_detail.tab-pane.active.fade.in 
+      = render 'product_full_detail_content', product: @product
+    #all_record.tab-pane.fade.in ...prof...
+    #show_order.tab-pane.fade.in 
+      = render 'reviews/new', product: @product
+      = render 'reviews/review', product: @product
+
+:javascript
+  (function($) {
+      fakewaffle.responsiveTabs(['xs', 'sm']);
+  })(jQuery);

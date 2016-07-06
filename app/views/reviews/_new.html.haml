@@ -1,0 +1,10 @@
+%section.new_review.container
+  .row.col-md-8.col-md-offset-1
+    = form_for [@product, Review.new], class: "form-horizontal" do |f|
+      %fieldset.form-group
+        %h4
+          =t :write_review
+        = f.text_area :content, rows: 6, class: "col-md-8"
+      %fieldset.form-group
+        = submit_tag "#{ t :submit_review }", class: "btn btn-success"
+        = link_to "#{ t :cancel_review }", @product

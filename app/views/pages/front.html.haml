@@ -1,0 +1,24 @@
+%head
+  %script{:type => "application/x-javascript"}
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+  = stylesheet_link_tag    'front/_memenu.css', media: 'all'
+  = javascript_include_tag 'front/_memenu.js'
+  :javascript
+      $(document).ready(function(){$(".memenu").memenu();});
+  = javascript_include_tag 'front/_simpleCart.min.js'
+  = javascript_include_tag 'front/_responsiveslides.min.js'
+  :javascript
+    $(function () {
+      $("#slider").responsiveSlides({
+        auto: true,
+        speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+
+%body
+  = render 'pages/front_header'
+  = render 'pages/front_banner'
+  = render 'pages/front_content'
+  = render 'pages/front_footer'
