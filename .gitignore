@@ -14,8 +14,12 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/dump.rdb
 !/log/.keep
 !/tmp/.keep
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore application configuration
+/config/application.yml
